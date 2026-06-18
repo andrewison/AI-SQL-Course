@@ -17,12 +17,16 @@ SELECT
 	,ps.Tariff
 	
 	,ps.Hospital
+	,DATEDIFF(DAY, ps.AdmittedDate, ps.DischargeDate) AS LengthOfStay
 
 FROM
 	PatientStay PS
 WHERE ps.Hospital IN ('Kingston','PRUH')
 	AND Ps.Ward LIKE '%Surgery'
 	AND ps.AdmittedDate BETWEEN '2024-02-27' AND '2024-02-28'
+
+ORDER BY ps.Tariff DESC
+
 
 
 	
